@@ -53,7 +53,8 @@ class TurtleApp:
         self._turtle.right(20)
 
     def rosace(self, x_mouse, y_mouse):
-        # Drawing sequence 
+        self._turtle.teleport(x_mouse, y_mouse)
+        # Drawing sequence
         self._turtle.begin_fill() 
         while True: 
             self._turtle.forward(150) 
