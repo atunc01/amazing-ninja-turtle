@@ -4,6 +4,7 @@ from turtle import Turtle, Vec2D
 class TurtleApp:
     def __init__(self) -> None:
         self._turtle = Turtle()
+        self.stylo_actif=True
 
     def set_up(self):
         # Initial position: pointing upward
@@ -14,6 +15,14 @@ class TurtleApp:
 
         # Set up callbacks in the screen object
         self._turtle.screen.listen()
+
+    def activation_stylo(self):
+        if self.stylo_actif:
+            self._turtle.penup()
+            self.stylo_actif=False
+        else: 
+            self._turtle.pendown()
+            self.stylo_actif=True
 
     def run_app(self):
         # Set up the app
@@ -28,6 +37,7 @@ class TurtleApp:
         self._turtle.screen.onkey(self.on_left_key_event, "Left")
         self._turtle.screen.onkey(self.on_right_key_event, "Right")
         self._turtle.screen.onkey(self.reset_turtle, "space")
+        self._turtle.screen.onkey(self.activation_stylo,"p")
 
     def on_up_key_event(self):
         self._turtle.forward(10)
