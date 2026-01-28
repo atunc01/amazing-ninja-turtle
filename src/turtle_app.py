@@ -38,6 +38,7 @@ class TurtleApp:
         self._turtle.screen.onkey(self.on_right_key_event, "Right")
         self._turtle.screen.onkey(self.reset_turtle, "space")
         self._turtle.screen.onkey(self.activation_stylo,"p")
+        self._turtle.screen.onscreenclick(self.rosace)
 
     def on_up_key_event(self):
         self._turtle.forward(10)
@@ -50,6 +51,16 @@ class TurtleApp:
 
     def on_right_key_event(self):
         self._turtle.right(20)
+
+    def rosace(self, x_mouse, y_mouse):
+        # Drawing sequence 
+        self._turtle.begin_fill() 
+        while True: 
+            self._turtle.forward(150) 
+            self._turtle.left(140) 
+            if abs(self._turtle.pos() - Vec2D(x_mouse, y_mouse)) < 1: 
+                break 
+        self._turtle.end_fill()
 
     def reset_turtle(self):
         self._turtle.clear()
