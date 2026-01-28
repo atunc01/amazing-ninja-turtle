@@ -1,1 +1,0 @@
-WELCOME_MSG = """Welcome to the mini turtle game! Rules are simple :- Click anywhere on the graphic zone to enable the turtle progression and its trace.- Press 'p' to disable the turtle trace.Enjoy!"""def main():    print(WELCOME_MSG)if __name__ == "__main__":    main()
